@@ -3,8 +3,8 @@ title:       Mohamed Bassem's Blog
 email:       medoox240@gmail.com
 author:      Mohamed Bassem
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
-baseurl:     "/MyBlog"
-url:         "http://mohamedbassem.github.io"
+baseurl:     ""
+url:         "http://blog.mbassem.com"
 
 # Google analytics
 google_analytics: UA-47448310-1
