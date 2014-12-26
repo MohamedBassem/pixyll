@@ -7,7 +7,7 @@ baseurl:     "/MyBlog"
 url:         "http://mohamedbassem.github.io"
 
 # Google analytics
-#google_analytics: UA-53548208-1
+google_analytics: UA-47448310-1
 
 # Optional features
 animated:           false
