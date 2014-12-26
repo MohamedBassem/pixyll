@@ -16,7 +16,7 @@ layout: default
   <span class="post-meta small">{{ minutes }} minute read</span>
 </div>
 
-<article class="post-content">
+<article class="post-content" {% if page.is_arabic %} dir="rtl" {% endif %} >
   {{ content }}
 </article>
 
