@@ -1,13 +1,13 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
+title:       Mohamed Bassem's Blog
+email:       medoox240@gmail.com
+author:      Mohamed Bassem
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
-baseurl:     ""
-url:         "http://pixyll.com"
+baseurl:     "/MyBlog"
+url:         "http://mohamedbassem.github.io"
 
 # Google analytics
-google_analytics: UA-53548208-1
+#google_analytics: UA-53548208-1
 
 # Optional features
 animated:           false
