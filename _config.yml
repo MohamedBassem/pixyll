@@ -5,6 +5,7 @@ author:      Mohamed Bassem
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
 baseurl:     ""
 url:         "http://blog.mbassem.com"
+about_url: "http://mbassem.com"
 
 # Google analytics
 google_analytics: UA-47448310-1
