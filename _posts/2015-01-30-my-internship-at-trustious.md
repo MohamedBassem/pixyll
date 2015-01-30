@@ -9,6 +9,7 @@ tags:
   - Internship
 categories :
 modified_time: '2014-02-05T10:36:56.773-08:00'
+published: false
 ---
 Networks? Yeah I think it's cool. Distributed Systems? I want to try it. Machine Learning? Sure! I'll take the machine learning course on coursera and I'll start building my first recommender. Kernel Hacking? Yes it's kernel hacking I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing. OK, Let's ask a question on Quora maybe I'll get some help. Honestly most of the answers weren't helpful at all. Most of them suggested that I should switch fields. I guess they didn't get what I was asking about. But one answer suggested something that I think is correct to a big extent.
 
