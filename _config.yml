@@ -15,19 +15,28 @@ animated:           false
 show_related_posts: false
 show_post_footers:  false
 
+# Disqus post comments
+# (leave blank to disable Disqus)
+disqus_shortname:
+
 # Social icons
 show_social_icons: true
 github_username: MohamedBassem
 twitter_username: MohamedBassem
 google_plus_id: +MohamedBassem
 linkedin_username: MohamedBassem
+stackoverflow_id:
 bitcoin_url:
 paypal_url:
 flattr_button:
 
 # Build settings
 markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
 paginate:     3
 sass:
   compressed: true
+gems:
+  - jekyll-sitemap
