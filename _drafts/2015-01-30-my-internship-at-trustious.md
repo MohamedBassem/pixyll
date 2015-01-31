@@ -1,7 +1,8 @@
 ---
 layout: post
 title: My Internship at Trustious
-summary : ""
+summary : "Networks? Yeah I think it's cool. Distributed Systems? I want to try it. Machine Learning? Sure! I'll take the machine learning course on coursera and I'll start building my first recommender. Kernel Hacking? Yes it's kernel hacking I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing.
+"
 date: '2015-01-30T10:32:00.000-08:00'
 author: Mohamed Bassem
 tags:
@@ -16,7 +17,7 @@ Networks? Yeah I think it's cool. Distributed Systems? I want to try it. Machine
 
 The answer made sense. I've never for example worked on anything related to machine learning before but I saw its applications and they are cool that's why I wanted to learn about it. It's not bad at all to learn about something cause it's cool, the problem is that it wasn't interesting enough for me to spend my time learning more about it. That's when I got an internship offer from [Trustious](http://www.trustious.com/). I knew about Trustious before as some of my friends did an internship there. I knew about how good the team there was. I spent some time thinking about it and then I accepted the offer. I can say that this was one of the best decisions I took in 2014.
 
-Working with such a great team is awesome! I finished my three-month internship and continued as a part-timer throughout my 7th semester. I enjoyed the kind of work assigned to me. While being at the office you can at any time go and ask anyone anything and you'll get a satisfying answer. The thing that affected me the most was that ***I found my passion***. I love writing scripts, I love automating things, I love managing servers and I love the infrastructure work. I still can't find the suitable title for this job but at least that's the job description.
+Working with such a great team is awesome! I finished my three-month internship and continued as a part-timer throughout my 7th semester. The thing that affected me the most was that ***I found my passion***. I love writing scripts, I love automating things, I love managing servers and I love the infrastructure work. I still can't find the suitable title for this job but at least that's the job description.
 
 One more thing that is worth mentioning is those tournament days. Those days when we come to the office just to have fun :D I played some new games like [Jenga Boom](http://www.amazon.com/Hasbro-A2028-Jenga-Boom/dp/B009H0EFGE), [Therapy](http://www.amazon.com/Pressman-Therapy-The-Game/dp/B000IUA1AQ), [Start Flux](http://www.amazon.ca/Looney-Lab-star-flux-game/dp/B005WGPZWU) - I love this one - and others. I played Pictionary, they knew about my amazing drawing skills as you may see in the picture below. I played bowling with empty plastic water bottles and I lost many PlayStation Gladiator Duels while using [Playstation Move](http://en.wikipedia.org/wiki/PlayStation_Move) for the first time.
 
