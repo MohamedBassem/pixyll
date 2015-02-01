@@ -1,8 +1,7 @@
 ---
 layout: post
 title: My Internship at Trustious
-summary : "Networks? Yeah I think it's cool. Distributed Systems? I want to try it. Machine Learning? Sure! I'll take the machine learning course on coursera and I'll start building my first recommender. Kernel Hacking? Yes it's kernel hacking I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing.
-"
+summary : "Networks? Yeah I think it's cool. Distributed Systems? I want to try it. Machine Learning? Sure! I'll take the machine learning course on coursera and I'll start building my first recommender. Kernel Hacking? Yes it's kernel hacking I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing. That's when I got an internship offer from Trustious."
 date: '2015-01-30T10:32:00.000-08:00'
 author: Mohamed Bassem
 tags:
