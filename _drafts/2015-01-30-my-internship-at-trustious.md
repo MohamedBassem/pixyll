@@ -20,24 +20,24 @@ I finished my three-month internship and continued as a part-timer throughout my
 
 I can write a separate blog post about the technical things I learned at Trustious but I'll try to mention some of them briefly. First of all, I started using Vim and tmux as my default development environment. My bash knowledge was almost doubled. I learned about docker and started using it heavily. I developed a distributed docker-based test parallelization framework in bash. I learned about caching and got the opportunity to introduce lots of changes to the caching infrastructure. I learned about A/B testing and feature toggles and developed a rails library for each of them. I learned about Jenkins and designed the CI system. I helped in building our small in-office testing cluster :heart:. I couldn't have learned or got exposed to all of this without the supervision of this awesome team.
 
-![Playing Jenga Boom with Atef]({{ site.url }}/images/my-internship-at-trustious/ss_IMG_0907.JPG)
+[![Playing Jenga Boom with Atef](/img/my-internship-at-trustious/ss_IMG_0907.JPG)](/img/my-internship-at-trustious/ss_IMG_0907.JPG){:: data-lightbox="img1"}
 
 <p align="center" class="image-caption">Playing Jenga Boom with @matefh</p>
 
 
 One more thing that is worth mentioning is those tournament days. Those days when we come to the office just to have fun :smile:. In the office, there is a box containing lots of card and board games like [The Resistance](http://www.amazon.com/Indie-Boards-Cards-RES2IBC-Resistance/dp/B008A2BA8G), [Therapy](http://www.amazon.com/Pressman-Therapy-The-Game/dp/B000IUA1AQ), [Start Flux](http://www.amazon.ca/Looney-Lab-star-flux-game/dp/B005WGPZWU) - I love this one - and others. If you don't like board or card games, you can play other games like [Jenga Boom](http://www.amazon.com/Hasbro-A2028-Jenga-Boom/dp/B009H0EFGE), bowling with empty plastic water bottles or Pictionary. Ah, I lost many PlayStation Gladiator Duels using [Playstation Move](http://en.wikipedia.org/wiki/PlayStation_Move) by the way :sob:
 
-![My amazing drawing skills]({{ site.url }}/images/my-internship-at-trustious/ss_IMG_0875.JPG)
+[![My amazing drawing skills](/img/my-internship-at-trustious/ss_IMG_0875.JPG)](/img/my-internship-at-trustious/ss_IMG_0875.JPG){:: data-lightbox="img2"}
 
 <p align="center" class="image-caption">My amazing drawing skills.</p>
 
-![Empty plastic water bottles bowling]({{ site.url }}/images/my-internship-at-trustious/ss_IMG_8830.JPG)
+[![Empty plastic water bottles bowling](/img/my-internship-at-trustious/ss_IMG_8830.JPG)](/img/my-internship-at-trustious/ss_IMG_8830.JPG){:: data-lightbox="img3"}
 
 <p align="center" class="image-caption">Empty plastic water bottles bowling.</p>
 
 
 And Finally, a group photo after a breakfast outing!
 
-![Trustious team]({{ site.url }}/images/my-internship-at-trustious/IMG_2034_Modified.JPG)
+[![Trustious team](/img/my-internship-at-trustious/IMG_2034_Modified.JPG)](/img/my-internship-at-trustious/IMG_2034_Modified.JPG){:: data-lightbox="img4"}
 
 <span class="small mid-gray">*Photo credits : @matefh & @saherneklawy .*</span>
