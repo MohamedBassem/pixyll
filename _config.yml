@@ -30,6 +30,10 @@ bitcoin_url:
 paypal_url:
 flattr_button:
 
+# Configuring jekyll-mentions
+jekyll-mentions:
+    base_url: https://twitter.com
+
 # Build settings
 markdown:     kramdown
 redcarpet:
