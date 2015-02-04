@@ -3,7 +3,7 @@ layout: post
 title: My Journey with Trustious
 summary : "Networks? Yeah I think it's cool. Distributed Systems? I want to try building a distributed app. Machine Learning? Sure! I'll take the machine learning course on coursera because for sure building a recommendation system is fun. Kernel Hacking? Yes it's kernel hacking, I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing. That's when I got an internship offer from Trustious."
 description : "Networks? Yeah I think it's cool. Distributed Systems? I want to try building a distributed app. Machine Learning? Sure! I'll take the machine learning course on coursera because for sure building a recommendation system is fun. Kernel Hacking? Yes it's kernel hacking, I want to be a kernel hacker! Whenever I find something new, I get excited and start reading about it for a while and then nothing. That's when I got an internship offer from Trustious."
-date: '2015-02-4T07:39:00.000-08:00'
+date: '2015-02-04T17:49:00+0000'
 author: Mohamed Bassem
 image: /img/my-journey-with-trustious/IMG_2034_Modified.JPG
 tags:
