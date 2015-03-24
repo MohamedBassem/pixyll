@@ -24,3 +24,10 @@ The Jenkins build output tails the master process stdout which outputs the progr
 
 *The image of the server accepting connections*
 
+## Reporting results
+Results are reported back to the pull request as a comment from our Trustious bot listing failures - if any -.
+
+## The complete process
+
+*An image describing the complete workflow starting from jenkins till reporting output*
+
