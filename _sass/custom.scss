@@ -3,18 +3,14 @@
     text-align: center;
     background: #16a085;
     color: white;
-    padding: 8px 15px;
+    padding: 6px 15px;
     border-radius: 5px;
     margin: 1.5 * 1 0;
+    line-height: 190%;
 
     a {
-        font-weight: 700;
         color: #fff;
         margin-left: 10px;
-
-        &:hover {
-            border-bottom: 1px dashed #fff;
-        }
     }
 }
 
