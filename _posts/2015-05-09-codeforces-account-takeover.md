@@ -5,6 +5,7 @@ summary : "I was playing around with Codeforces and inspecting the networking of
 description : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
 date: '2015-05-09T20:00:00+2000'
 author: Mohamed Bassem
+image: /img/codeforces-account-takeover/cf.png
 tags:
   - Codeforces
   - Security
