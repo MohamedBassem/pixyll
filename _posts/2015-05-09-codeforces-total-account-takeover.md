@@ -3,9 +3,8 @@ layout: post
 title: Codeforces Total Account Takeover
 summary : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
 description : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
-date: '2015-05-06T17:49:00+0000'
+date: '2015-05-09T20:00:00+2000'
 author: Mohamed Bassem
-image: /img/my-journey-with-trustious/IMG_2034_Modified.JPG
 tags:
   - Codeforces
   - Security
@@ -13,18 +12,18 @@ tags:
 categories :
 ---
 
-I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF ([Cross-Site Request Forgery](http://en.wikipedia.org/wiki/Cross-site_request_forgery)) attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks.
+I was playing around with [Codeforces](http://codeforces.com) and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF ([Cross-Site Request Forgery](http://en.wikipedia.org/wiki/Cross-site_request_forgery)) attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks.
 
 I decided to write a proof of concept before reporting it to [Mike Mirzayanov](http://codeforces.com/profile/MikeMirzayanov) (Codeforces Admin). I wrote a script that can be injected in any page as a hidden Iframe which will change the email of the user without them noticing. It will also send a forget password email to the attacker's email to notify him that a new account is hacked (Codes are attached at the end of the post). It worked! Whenever the victim opens this page his account will be hijacked without him even noticing. A Codeforces blog post containing a link to this page will yield many accounts. I decided to deploy it live to make sure it worked before reporting it.
 
 ### Origin Header Validation
 To test it live, I span a digital ocean droplet and installed nginx for serving the webpage. I deployed the script but it didn't work. Opening the request manually showed the following message:
 
-[![CF CSRF Protection](/img/codeforces-csrf/csrf-protection.png)](/img/codeforces-csrf/csrf-protection.png){:: data-lightbox="img3"}
+[![CF CSRF Protection](/img/codeforces-total-account-takeover/csrf-protection.png)](/img/codeforces-total-account-takeover/csrf-protection.png){:: data-lightbox="img3"}
 
 I diff-ed the request from the live website with my local request and the differences were the Referer and the Origin headers.
 
-[![Request Headers diff](/img/codeforces-csrf/headers-diff.png)](/img/codeforces-csrf/headers-diff.png){:: data-lightbox="img3"}
+[![Request Headers diff](/img/codeforces-total-account-takeover/headers-diff.png)](/img/codeforces-total-account-takeover/headers-diff.png){:: data-lightbox="img3"}
 
 <p align="center" class="image-caption">Localhost on the left, The live server on the right.</p>
 
