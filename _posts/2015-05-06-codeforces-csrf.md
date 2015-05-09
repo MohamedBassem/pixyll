@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Codeforces Total Account Takeover
-summary : ""
-description : ""
+summary : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
+description : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
 date: '2015-05-06T17:49:00+0000'
 author: Mohamed Bassem
 image: /img/my-journey-with-trustious/IMG_2034_Modified.JPG
