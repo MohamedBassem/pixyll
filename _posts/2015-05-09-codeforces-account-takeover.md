@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Codeforces Total Account Takeover
+title: Codeforces Account Takeover
 summary : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
 description : "I was playing around with Codeforces and inspecting the networking of the website when I decided to check if Codeforces is vulnerable to CSRF attacks or not. I found that all requests contain CSRF tokens but I decided to test it anyway. I copied the request to my terminal and removed the CSRF token and it worked! I tried with different requests and apparently the CSRF tokens - although they existed - were never validated. Codeforces was vulnerable to CSRF attacks."
 date: '2015-05-09T20:00:00+2000'
@@ -19,11 +19,11 @@ I decided to write a proof of concept before reporting it to [Mike Mirzayanov](h
 ### Origin Header Validation
 To test it live, I span a digital ocean droplet and installed nginx for serving the webpage. I deployed the script but it didn't work. Opening the request manually showed the following message:
 
-[![CF CSRF Protection](/img/codeforces-total-account-takeover/csrf-protection.png)](/img/codeforces-total-account-takeover/csrf-protection.png){:: data-lightbox="img3"}
+[![CF CSRF Protection](/img/codeforces-account-takeover/csrf-protection.png)](/img/codeforces-account-takeover/csrf-protection.png){:: data-lightbox="img3"}
 
 I diff-ed the request from the live website with my local request and the differences were the Referer and the Origin headers.
 
-[![Request Headers diff](/img/codeforces-total-account-takeover/headers-diff.png)](/img/codeforces-total-account-takeover/headers-diff.png){:: data-lightbox="img3"}
+[![Request Headers diff](/img/codeforces-account-takeover/headers-diff.png)](/img/codeforces-account-takeover/headers-diff.png){:: data-lightbox="img3"}
 
 <p align="center" class="image-caption">Localhost on the left, The live server on the right.</p>
 
@@ -56,7 +56,7 @@ I recorded a video as a proof of concept and uploaded the scripts and reported t
 Codes : [https://gist.github.com/MohamedBassem/cbbf60c1393bafe6052b](https://gist.github.com/MohamedBassem/cbbf60c1393bafe6052b)
 
 <br />
-**In a parallel universe,** While you were reading this, You could have lost your CF account :smiling_imp:
+**In a parallel universe,** While you were reading this, you could have lost your CF account :smiling_imp:
 
 I want to thank Mike for his fast response and fix. I want also to thank @SymbianSyMoh for his [post](https://www.facebook.com/SymbianSyMoh/posts/1111635182184901?pnref=story) [In Arabic] that motivated me to search for vulnerabilities.
 
