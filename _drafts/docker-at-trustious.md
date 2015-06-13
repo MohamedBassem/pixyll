@@ -14,10 +14,12 @@ Jenkins is listening in the background for that pattern and will start the full 
 
 #### Starting The workers
 The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. For each worker a process is spawned. Each process connects to the worker using an SSH connecting and pipes the output to a file named with the worker id. Each workers first pulls the new docker image - if any -, runs it and starts contacting the server - which we will talk on in the next section - for tests to run.
+
 *** An Image for the build matrix ***
 
 #### Starting the test server
 The server starts a dry run to list all the tests to run and filters them by the regex given - if any -. Having the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds for workers request with a test at time. The worker then runs this test, logs the result to stdout and then contact the server again for another tests. Once all the tests are sent to the workers, the nodejs exits and waits for the workers - its subprocesses - to finish. Once a worker finishes, it tries to contact the server several times to make sure that it's really over and then exists.
+
 *** An Image for a running test ***
 
 #### Aggregating Results and handling Flaky Tests
@@ -27,8 +29,8 @@ If the percentage of failures to the number of original tests is under a certain
 
 #### Reporting Results
 After two or three test runs, the final list of failing tests is ready. Jenkins takes this list and report it back to Github with a comment.
-*** An image of the bot comment ***
 
+*** An image of the bot comment ***
 
 ### Problems Faced
 #### Handling Worker Failures
