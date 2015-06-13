@@ -3,6 +3,7 @@
 At Trustious, our test suite runs on a single machine in about 12 hours. We used to parallelize the run on three machine. The run takes on average 4 hours. The results still weren't satisfying to us so we started building our in office test cluster.
 
 *** The image of the machines shelf being built. ***
+[![Building the rack](../img/docker-at-trustious/building-the-rack.JPG)](../img/docker-at-trustious/building-the-rack.JPG).
 
 We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker on each machine doesn't fully utilize the machine resources. We need a single machine parallelization.
 
@@ -16,19 +17,19 @@ First of all, we need to prepare our docker image. The docker image should could
 #### Triggering the Job
 Triggering a test run is as easy as commenting on the pull request you need to test on Github with "@trustious-admin run a full test please".
 
-[![Starting a full test](/img/docker-at-trustious/run-full-tests)](/img/docker-at-trustious/run-full-tests).
+[![Triggering a test run](../img/docker-at-trustious/trigger-a-run.png)](../img/docker-at-trustious/trigger-a-run.png).
 
 Jenkins is listening in the background for that pattern and will start the full tests for Abdo.
 
 #### Starting The workers
 The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. For each worker a process is spawned. Each process connects to the worker using an SSH connecting and pipes the output to a file named with the worker id. Each workers first pulls the new docker image - if any -, runs it and starts contacting the server - which we will talk on in the next section - for tests to run.
 
-*** An Image for the build matrix ***
+[![The build matrix](../img/docker-at-trustious/build-matrix.png)](../img/docker-at-trustious/build-matrix.png).
 
 #### Starting the test server
 The server starts a dry run to list all the tests to run and filters them by the regex given - if any -. Having the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds for workers request with a test at time. The worker then runs this test, logs the result to stdout and then contact the server again for another tests. Once all the tests are sent to the workers, the nodejs exits and waits for the workers - its subprocesses - to finish. Once a worker finishes, it tries to contact the server several times to make sure that it's really over and then exists.
 
-*** An Image for a running test ***
+[![A running test](../img/docker-at-trustious/test-run.png)](../img/docker-at-trustious/test-run.png).
 
 #### Aggregating Results and handling Flaky Tests
 Once all the workers are down, the server continues with aggregating the results. Remember that the SSH output of all workers are redirect to files on the server? Now it's time to parse those files, aggregate the results from each worker with a simple python script. The python script compares the results with the original list of tests. Tests that are missing for some reason - maybe due to a node failure - are reported as failures.
@@ -38,7 +39,8 @@ If the percentage of failures to the number of original tests is under a certain
 #### Reporting Results
 After two or three test runs, the final list of failing tests is ready. Jenkins takes this list and report it back to Github with a comment.
 
-*** An image of the bot comment ***
+[![The bot comment](../img/docker-at-trustious/run-results.png)](../img/docker-at-trustious/run-results.png).
+
 
 ### Problems Faced
 #### Handling Worker Failures
