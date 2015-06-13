@@ -2,7 +2,6 @@
 
 At Trustious, our test suite runs on a single machine in about 12 hours. We used to parallelize the run on three machine. The run takes on average 4 hours. The results still weren't satisfying to us so we started building our in office test cluster.
 
-*** The image of the machines shelf being built. ***
 [![Building the rack](../img/docker-at-trustious/building-the-rack.JPG)](../img/docker-at-trustious/building-the-rack.JPG).
 
 We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker on each machine doesn't fully utilize the machine resources. We need a single machine parallelization.
