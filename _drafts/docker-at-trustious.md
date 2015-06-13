@@ -2,11 +2,11 @@
 
 At Trustious, our test suite runs on a single machine in about 12 hours. We used to parallelize the run on three machine. The run takes on average 4 hours. The results still weren't satisfying to us so we started building our in office test cluster.
 
-***The image of the machines shelf being built.***
+*** The image of the machines shelf being built. ***
 
 We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker on each machine doesn't fully utilize the machine resources. We need a single machine parallelization.
 
-By parallelizing on a single machine you need to take care of database conflicts, elasticsearch conflicts and if you are running multiple spork instances then you'll also face ports conflicts. It's a headache handling all of these conflicts. We need some kind of isolation. Our workers need to act as if they are running on different hosts. Virtualization is the keyword. Virtualization will solve the conflict problems perfectly, but the problem is with the overhead added by the virtual machines on the servers. That's when we found about Docker. *Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.* - Wikipedia. Docker is exactly what we were searching for so we started building our framework using docker. In this blog post we are going to talk about our distributed tests architecture.
+By parallelizing on a single machine you need to take care of database conflicts, elasticsearch conflicts and if you are running multiple spork instances then you'll also face ports conflicts. It's a headache handling all of these conflicts. We need some kind of isolation. Our workers need to act as if they are running on different hosts. Virtualization is the keyword. Virtualization will solve the conflict problems perfectly, but the problem is with the overhead added by the virtual machines on the servers. That's when we found about Docker. "*Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.*" - Wikipedia. Docker is exactly what we were searching for so we started building our framework using docker. In this blog post we are going to talk about our distributed tests architecture.
 
 ### Architecture
 
