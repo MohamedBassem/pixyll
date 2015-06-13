@@ -1,5 +1,13 @@
 # Docker at Trustious
 
+At Trustious, our test suite runs on a single machine in about 12 hours. We used to parallelize the run on three machine. The run takes on average 4 hours. The results still weren't satisfying to us so we started building our in office test cluster.
+
+***The image of the machines shelf being built.***
+
+We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker on each machine doesn't fully utilize the machine resources. We need a single machine parallelization.
+
+By parallelizing on a single machine you need to take care of database conflicts, elasticsearch conflicts and if you are running multiple spork instances then you'll also face ports conflicts. It's a headache handling all of these conflicts. We need some kind of isolation. Our workers need to act as if they are running on different hosts. Virtualization is the keyword. Virtualization will solve the conflict problems perfectly, but the problem is with the overhead added by the virtual machines on the servers. That's when we found about Docker. *Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.* - Wikipedia. Docker is exactly what we were searching for so we started building our framework using docker. In this blog post we are going to talk about our distributed tests architecture.
+
 ### Architecture
 
 #### Preparing Docker Things
@@ -81,8 +89,10 @@ The idea of connecting to workers with SSH and logging their stdout to a file is
 Currently the system is tolerant to worker failures as mentioned before. Network failures is not also a problem for the master as it will reconnect normally to its workers. But currently if the master fails - due to a power outage for example - the whole process stops and jenkins reports a failure to the complete process. We can tolerate this as it's not very common and also repeating the test run is not a big deal as making the system tolerant to master failures.
 
 #### Service discovery and Scheduling
-Currently the workers IPs are hardcoded in the build matrix and the number of workers on each machines is specified manually. Service discovery tools could solve the IPs problem and other tools like Apache Mesos could make the scheduling thing more dynamic. But it's an over-kill for a cluster of 4 machines.
+Currently the workers IPs are hardcoded in the build matrix and the number of workers on each machines is specified manually. Service discovery tools could solve the IPs problem and other tools like Apache Mesos could make the scheduling thing more dynamic. But it's an over-kill for a cluster of 5 machines.
 
 ### Bonus
 ####The development environment
 One of the things we got as a bonus while building this test framework is our Dockerfile. Usually our new developers spend their first days setting up the environment and installing the tools and those things. With this pre-built docker file, developers can instantly start their development environment by pulling the development image from our local registry and can now focus on more interesting things in their first days ;)
+
+With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvements. Your comments, questions and ideas are welcomed!
