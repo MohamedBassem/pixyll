@@ -16,7 +16,7 @@ categories :
 ---
 At Trustious, our test suite was running on a single machine in about 12 hours. We used to parallelize the run on three machine. The run took on average about 4 hours. The results still were not satisfying to us so we started building our in office test cluster.
 
-[![Building the rack](/img/docker-at-trustious/building-the-rack.JPG)](/img/docker-at-trustious/building-the-rack.JPG).
+[![Building the rack](/img/docker-at-trustious/building-the-rack.JPG)](/img/docker-at-trustious/building-the-rack.JPG){:: data-lightbox="img1"}
 
 We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker/core on each machine doesn't fully utilize the machine resources. We wanted to run tests in parallel even on a single machine.
 
@@ -36,19 +36,19 @@ To make the process even easier for the workers we extended our environment's co
 #### Triggering the Job
 Triggering a test run is as easy as commenting on the pull request you need to test on Github with "&#64;trustious-admin run a full test please".
 
-[![Triggering a test run](/img/docker-at-trustious/trigger-a-run.png)](/img/docker-at-trustious/trigger-a-run.png).
+[![Triggering a test run](/img/docker-at-trustious/trigger-a-run.png)](/img/docker-at-trustious/trigger-a-run.png){:: data-lightbox="img2"}
 
 Jenkins - the famous continuous integration tool - is listening in the background for that pattern and will start the full tests for Abdo.
 
 #### Starting The workers
 The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. The build matrix is a file that contains the IP of our cluster machines and the number of workers to run on each machine. For each worker a process on the server is spawned. Each process connects to the worker using an SSH connection and pipes its output to a file named with the worker id. Each workers first pulls the new docker image - if any -, runs it and starts contacting the server - which we will talk on in the next section - for tests to run.
 
-[![The build matrix](/img/docker-at-trustious/build-matrix.png)](/img/docker-at-trustious/build-matrix.png).
+[![The build matrix](/img/docker-at-trustious/build-matrix.png)](/img/docker-at-trustious/build-matrix.png){:: data-lightbox="img3"}
 
 #### Starting the test server
 The server starts a dry run to list all the tests to run and filters them by the regex given - if any -. Having the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds for workers request with one test at a time. The worker then runs this test, logs the result to stdout and then contacts the server again for another test. After all the tests are sent to the workers, the nodejs exits and waits for the workers - its subprocesses - to finish. Once a worker finishes, it tries to contact the server several times to make sure that it's really over and then exists.
 
-[![A running test](/img/docker-at-trustious/test-run.png)](/img/docker-at-trustious/test-run.png).
+[![A running test](/img/docker-at-trustious/test-run.png)](/img/docker-at-trustious/test-run.png){:: data-lightbox="img4"}
 
 #### Aggregating Results and handling Flaky Tests
 Once all the workers are done, the server continues with aggregating the results. Remember that the SSH output of all workers is redirected to files on the server. Now it's time to parse those files, aggregate the results from each worker with a simple python script. The python script compares the results with the original list of tests. Tests that are missing for some reason - maybe due to a node failure - are reported as failures.
@@ -58,7 +58,7 @@ If the percentage of failures to the number of original tests is under a certain
 #### Reporting Results
 After two or three test runs, the final list of failing tests is ready. Jenkins takes this list and report it back to Github with a comment.
 
-[![The bot comment](/img/docker-at-trustious/run-results.png)](/img/docker-at-trustious/run-results.png).
+[![The bot comment](/img/docker-at-trustious/run-results.png)](/img/docker-at-trustious/run-results.png){:: data-lightbox="img5"}
 
 
 ### Problems Faced
@@ -122,7 +122,7 @@ One of the things we got as a bonus while building this test framework is our Do
 #### The Canned Comments Plugin
 Since our tests - and many other jenkins jobs - are triggered by comments on pull requests, @matefh developed this awesome chrome plugin for us!
 
-[![The canned comments plugin](/img/docker-at-trustious/canned-comments-plugin.png)](/img/docker-at-trustious/canned-comments-plugin.png).
+[![The canned comments plugin](/img/docker-at-trustious/canned-comments-plugin.png)](/img/docker-at-trustious/canned-comments-plugin.png){:: data-lightbox="img6"}
 
 
 With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvements.
