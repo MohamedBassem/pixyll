@@ -95,13 +95,19 @@ The idea of connecting to workers with SSH and logging their stdout to a file is
 #### Master Failure
 Currently the system is tolerant to worker failures as mentioned before. Network failures is not also a problem for the master as it will reconnect normally to its workers. But currently if the master fails - due to a power outage for example - the whole process stops and jenkins reports a failure to the complete process. We can tolerate this as it's not very common and also repeating the test run is not a big deal as making the system tolerant to master failures.
 
-#### Service discovery and Scheduling
+#### Service Discovery and Scheduling
 Currently the workers IPs are hardcoded in the build matrix and the number of workers on each machines is specified manually. Service discovery tools could solve the IPs problem and other tools like Apache Mesos could make the scheduling thing more dynamic. But it's an over-kill for a cluster of 5 machines.
 
 ### Bonus
 
-####The development environment
+#### The Development Environment
 One of the things we got as a bonus while building this test framework is our Dockerfile. Usually our new developers spend their first days setting up the environment and installing the tools and those things. With this pre-built docker file, developers can instantly start their development environment by pulling the development image from our local registry and can now focus on more interesting things in their first days ;)
+
+#### The Canned Comments Plugin
+Since our tests - and many other jenkins jobs - are triggered by comments on pull requests, @matefh developed this awesome chrome plugin for us!
+
+[![The canned comments plugin](../img/docker-at-trustious/canned-comments-plugin.png)](../img/docker-at-trustious/canned-comments-plugin.png).
+
 
 With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvements.
 
