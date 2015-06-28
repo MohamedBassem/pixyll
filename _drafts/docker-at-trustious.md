@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Parallel Tests with Docker
-summary : ""
-description : ""
-date: '2015-06-28T20:00:00+2000'
+summary : "At Trustious, our test suite used to run on a single machine for about 12 hours. We then tried parallelizing the run on three machines. The run took on average about 4 hours. The results were still not satisfying to us so we started building our in office test cluster and a test parallelization framework using docker."
+description : "At Trustious, our test suite used to run on a single machine for about 12 hours. We then tried parallelizing the run on three machines. The run took on average about 4 hours. The results were still not satisfying to us so we started building our in office test cluster and a test parallelization framework using docker."
+date: '2015-06-28T21:30:00+2000'
 author: Mohamed Bassem
-image:
+image: /img/docker-at-trustious/building-the-rack.JPG
 tags:
   - docker
   - rails
@@ -14,6 +14,7 @@ tags:
   - bash
 categories :
 ---
+
 At Trustious, our test suite used to run on a single machine for about 12 hours. We then tried parallelizing the run on three machines. The run took on average about 4 hours. The results were still not satisfying to us so we started building our in office test cluster.
 
 [![Building the rack](/img/docker-at-trustious/building-the-rack.JPG)](/img/docker-at-trustious/building-the-rack.JPG){:: data-lightbox="img1"}
