@@ -23,7 +23,7 @@ We added two more machines to our cluster but it didn't make a big difference. T
 
 When parallelizing on a single machine you need to take care of database write conflicts, elasticsearch write conflicts, and if you are running multiple [spork](https://github.com/sporkrb/spork) instances (a DRb server that we use to speed up starting tests) then you'll also face port conflicts. It's a headache handling all of these conflicts. We needed some kind of isolation. Our workers needed to act as if they are running on different hosts.
 
-*Virtualization* is the keyword. Virtualization will solve the conflict problems perfectly, but there is a problem which is the overhead added by the virtual machines on the servers. That's when we found out about Docker. "*Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.*" - [Wikipedia](https://en.wikipedia.org/wiki/Docker_(software)). Docker is exactly what we were searching for so we started using it to build our framework.
+**Virtualization** is the keyword. Virtualization will solve the conflict problems perfectly, but there is a problem which is the overhead added by the virtual machines on the servers. That's when we found out about Docker. "*Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.*" - [Wikipedia](https://en.wikipedia.org/wiki/Docker_(software)). Docker is exactly what we were searching for so we started using it to build our framework.
 
 ### Architecture
 
