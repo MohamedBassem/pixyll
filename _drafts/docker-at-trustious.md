@@ -47,7 +47,7 @@ The first thing in the process of the full tests is starting our workers. The wo
 [![The build matrix](/img/docker-at-trustious/build-matrix.png)](/img/docker-at-trustious/build-matrix.png){:: data-lightbox="img3"}
 
 #### Starting the test server
-The server starts a dry run to list all the tests to run and filters them by the regex given, if any. Now that it has the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds to workers request with one test at a time. The worker then runs this test, logs the result to stdout and then contacts the server again for another test. After all the tests are sent to the workers, the nodejs exits and waits for the workers, its subprocesses, to finish. Once a worker finishes, it tries to contact the server several times to make sure that it finished and then exits.
+The server starts a dry run to list all the tests to run and filters them by the regex given, if any. Now that it has the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds to workers request with one test at a time. The worker then runs this test, logs the result to stdout and then contacts the server again for another test. After all the tests are sent to the workers, the nodejs server exits and waits for the workers, its subprocesses, to finish. Once a worker finishes, it tries to contact the server several times to make sure that it finished and then exits.
 
 [![A running test](/img/docker-at-trustious/test-run.png)](/img/docker-at-trustious/test-run.png){:: data-lightbox="img4"}
 
@@ -68,7 +68,7 @@ After two or three test runs, the final list of failed tests is ready. Jenkins t
 Workers may fail for many reasons, like a power outage, network issues or any other reason. We need to make sure that once the worker is back it joins the test run. We don't want to lose this worker. Since we have a certain process for each worker, we can detect its failure easily. If the SSH connection is closed while there are still some tests in the queue, this means that the worker got disconnected. The process then waits five seconds and then tries connecting to it again and so on until it's back online.
 
 #### Rspec Results Format
-As we mentioned before, rspec test results are dumped to stdout for each test. The problem is that by default rspec results are hard to parse and it's hard to extract the failures. We decided to go for a JSON formatter but our rspec's version doesn't have it. Fortunately you can write your own formatter and the rspec-core is oper source, so here is the JSON formatter [source code](https://github.com/rspec/rspec-core/blob/master/lib/rspec/core/formatters/json_formatter.rb) ;)
+As we mentioned before, rspec test results are dumped to stdout for each test. The problem is that by default rspec results are hard to parse and it's hard to extract the failures. We decided to go for a JSON formatter but our rspec's version doesn't have it. Fortunately you can write your own formatter and the rspec-core is oper source, so here is the JSON formatter's [source code](https://github.com/rspec/rspec-core/blob/master/lib/rspec/core/formatters/json_formatter.rb) ;)
 
 #### Rspec Dry Run
 Dry run is needed for the server to list all the tests we had. It was there in earlier versions of rspec but then removed. So we hacked it in our way.
