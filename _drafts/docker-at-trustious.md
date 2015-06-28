@@ -39,7 +39,7 @@ Triggering a test run is as easy as commenting on the pull request you need to t
 
 [![Triggering a test run](/img/docker-at-trustious/trigger-a-run.png)](/img/docker-at-trustious/trigger-a-run.png){:: data-lightbox="img2"}
 
-Jenkins, the famous continuous integration tool, listens in the background for that pattern and starts the full tests for Abdo.
+[Jenkins](https://jenkins-ci.org/), the famous continuous integration tool, listens in the background for that pattern and starts the full tests for Abdo.
 
 #### Starting The workers
 The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. The build matrix is a file that contains the IP of our cluster machines and the number of workers to run on each machine. For each worker a process on the server is spawned. Each process connects to the worker using an SSH connection and pipes its output to a file named with the worker id. Each worker first pulls the new docker image, if any, runs it and starts contacting the server; which we will talk about in the next section, to run the tests.
