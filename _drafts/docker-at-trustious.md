@@ -125,7 +125,7 @@ Since our tests, and many other jenkins jobs, are triggered by comments on pull 
 [![The canned comments plugin](/img/docker-at-trustious/canned-comments-plugin.png)](/img/docker-at-trustious/canned-comments-plugin.png){:: data-lightbox="img6"}
 
 
-With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvement.
+With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for the main run and its re-runs! And there is still more room for improvement.
 
 Your comments, questions and ideas are welcomed!
 
