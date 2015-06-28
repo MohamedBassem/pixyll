@@ -1,37 +1,39 @@
-# Docker at Trustious
-
-At Trustious, our test suite runs on a single machine in about 12 hours. We used to parallelize the run on three machine. The run takes on average 4 hours. The results still weren't satisfying to us so we started building our in office test cluster.
+At Trustious, our test suite was running on a single machine in about 12 hours. We used to parallelize the run on three machine. The run took on average about 4 hours. The results still were not satisfying to us so we started building our in office test cluster.
 
 [![Building the rack](../img/docker-at-trustious/building-the-rack.JPG)](../img/docker-at-trustious/building-the-rack.JPG).
 
-We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker on each machine doesn't fully utilize the machine resources. We need a single machine parallelization.
+We added two more machines to our cluster but it didn't make a big difference. The problem is that running a single worker/core on each machine doesn't fully utilize the machine resources. We wanted to run tests in parallel even on a single machine.
 
-By parallelizing on a single machine you need to take care of database conflicts, elasticsearch conflicts and if you are running multiple spork instances then you'll also face ports conflicts. It's a headache handling all of these conflicts. We need some kind of isolation. Our workers need to act as if they are running on different hosts. Virtualization is the keyword. Virtualization will solve the conflict problems perfectly, but the problem is with the overhead added by the virtual machines on the servers. That's when we found about Docker. "*Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.*" - Wikipedia. Docker is exactly what we were searching for so we started building our framework using docker. In this blog post we are going to talk about our distributed tests architecture.
+When parallelizing on a single machine you need to take care of database write conflicts, elasticsearch write conflicts and if you are running multiple spork instances then you'll also face port conflicts. It's a headache handling all of these conflicts. We need some kind of isolation. Our workers need to act as if they are running on different hosts.
+
+*Virtualization* is the keyword. Virtualization will solve the conflict problems perfectly, but the problem is with the overhead added by the virtual machines on the servers. That's when we found about Docker. "*Docker uses resource isolation features of the Linux kernel such as cgroups and kernel namespaces to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting virtual machines.*" - [Wikipedia](https://en.wikipedia.org/wiki/Docker_(software)). Docker is exactly what we were searching for so we started building our framework using it.
 
 ### Architecture
 
-#### Preparing Docker Things
-First of all, we need to prepare our docker image. The docker image should could contain all the dependencies needed for the test run. We started building our Dockerfile containing rails, needed gems, chrome driver and other tools needed for the test run. It's not logical for the workers to build the whole dockerfile with each run, we need a repo to store the built image. Since the built image was large, hosting it on docker hub will use lots of bandwidth for updating and pulling the image. We decided that we will host it in a local docker registry. Fortunately there's a docker image for local registries (https://github.com/docker/docker-registry) so we pulled it and set it up on one of our cluster's machines. Now since docker related things are ready, we can proceed to the next step.
+#### Preparing Docker Perquisites
+*If you are new to docker, it may be a good idea to read the docker terminology in this [post](http://www.troubleshooters.com/linux/docker/docker_newbie.htm).*
+
+First of all, we need to prepare our docker image. The docker image should contain all the dependencies needed for the test run. We started building our Dockerfile from rails (yes you can reuse other containers with docker!), bundling gems, chrome driver and other tools/binaries needed for the test run. It's not logical for the workers to build the whole Dockerfile with each run, we need a repo to store the built image. Since the built image was large, hosting it on docker hub will use lots of bandwidth for updating and pulling the image. We decided that we will host it in a local docker registry. Fortunately there's a docker image for [local registries](https://github.com/docker/docker-registry) (or the [newer version](https://docs.docker.com/registry/)). So we pulled it and set it up on one of our cluster's machines. Now since docker related things are ready, we can proceed to the next step.
 
 #### Triggering the Job
-Triggering a test run is as easy as commenting on the pull request you need to test on Github with "@trustious-admin run a full test please".
+Triggering a test run is as easy as commenting on the pull request you need to test on Github with "&#64;trustious-admin run a full test please".
 
 [![Triggering a test run](../img/docker-at-trustious/trigger-a-run.png)](../img/docker-at-trustious/trigger-a-run.png).
 
 Jenkins is listening in the background for that pattern and will start the full tests for Abdo.
 
 #### Starting The workers
-The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. For each worker a process is spawned. Each process connects to the worker using an SSH connecting and pipes the output to a file named with the worker id. Each workers first pulls the new docker image - if any -, runs it and starts contacting the server - which we will talk on in the next section - for tests to run.
+The first thing in the process of the full tests is starting our workers. The workers are started based on the build matrix in the root directory. For each worker a process is spawned. Each process connects to the worker using an SSH connecting and pipes its output to a file named with the worker id. Each workers first pulls the new docker image - if any -, runs it and starts contacting the server - which we will talk on in the next section - for tests to run.
 
 [![The build matrix](../img/docker-at-trustious/build-matrix.png)](../img/docker-at-trustious/build-matrix.png).
 
 #### Starting the test server
-The server starts a dry run to list all the tests to run and filters them by the regex given - if any -. Having the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds for workers request with a test at time. The worker then runs this test, logs the result to stdout and then contact the server again for another tests. Once all the tests are sent to the workers, the nodejs exits and waits for the workers - its subprocesses - to finish. Once a worker finishes, it tries to contact the server several times to make sure that it's really over and then exists.
+The server starts a dry run to list all the tests to run and filters them by the regex given - if any -. Having the tests to run, a very simple nodejs server starts queuing those tests and listening for requests. The server responds for workers request with one test at a time. The worker then runs this test, logs the result to stdout and then contacts the server again for another test. After all the tests are sent to the workers, the nodejs exits and waits for the workers - its subprocesses - to finish. Once a worker finishes, it tries to contact the server several times to make sure that it's really over and then exists.
 
 [![A running test](../img/docker-at-trustious/test-run.png)](../img/docker-at-trustious/test-run.png).
 
 #### Aggregating Results and handling Flaky Tests
-Once all the workers are down, the server continues with aggregating the results. Remember that the SSH output of all workers are redirect to files on the server? Now it's time to parse those files, aggregate the results from each worker with a simple python script. The python script compares the results with the original list of tests. Tests that are missing for some reason - maybe due to a node failure - are reported as failures.
+Once all the workers are done, the server continues with aggregating the results. Remember that the SSH output of all workers is redirected to files on the server. Now it's time to parse those files, aggregate the results from each worker with a simple python script. The python script compares the results with the original list of tests. Tests that are missing for some reason - maybe due to a node failure - are reported as failures.
 
 If the percentage of failures to the number of original tests is under a certain threshold, 10% for example, a new test run for those tests only is started. The reasons we are doing so are the flaky tests and node failures. Flaky tests are those tests that behave differently under certain conditions, heavy load on the test machine for example. Also if a node fails while running a test, this test will be missing and reported as a failure, so we need to re-run those tests. This percentage usually results in a one or two more test runs.
 
@@ -42,6 +44,7 @@ After two or three test runs, the final list of failing tests is ready. Jenkins 
 
 
 ### Problems Faced
+
 #### Handling Worker Failures
 Workers may fail for many reasons, power outage, network issues or any other reason. We need to make sure that the worker once it's back it joins the test run. We don't want to lose this worker. Since we have a certain process for each worker, we can detect its failure easily. If the SSH connection is closed while there are still some tests in the queue, this means that the worker got disconnected. The process then waits five seconds and then tries connecting to it again and so on until it's back online.
 
@@ -62,7 +65,7 @@ end
 Then you can start the dry run by `FAIL_ALL=true bundle exec rspec spec`. All tests will fail immediately.
 
 #### Many Failures
-Missing tests are reported failed with this error message `Example didn't run because of a timeout or a drop`. We had many of them. Whenever you try to run them locally, they will pass. We've always thought that those tests are flaky and that they fail because of the timeout we set. The problem is that they are not the same each run. This was one of the hardest problems we faced until we noticed that those tests are not in any of the logs of any of the servers although it was reported that it was assigned to a certain server. So somehow one of the workers started a request and it hit the server but the test itself was never sent to the worker for some reason. At first we had this as our server :
+Missing tests are reported failed with this error message `"Example didn't run because of a timeout or a drop"`. We had many of them. Whenever you try to run them locally, they will pass. We've always thought that those tests are flaky and that they fail because of the timeout we set. The problem is that they are not the same each run. This was one of the hardest problems we faced until we noticed that those tests are not in any of the logs of any of the servers although it was reported that it was assigned to a certain server. So somehow one of the workers started a request and it hit the server but the test itself was never sent to the worker for some reason. At first we had this as our server :
 
 ```bash
 cat $TESTS_FILE | while read x; do TMP=`echo "$x" | ncat -l $SERVER_PORT`; echo "$TEST_COUNTER - $x --> Worker $TMP"; let TEST_COUNTER=TEST_COUNTER+1; done
@@ -70,7 +73,7 @@ cat $TESTS_FILE | while read x; do TMP=`echo "$x" | ncat -l $SERVER_PORT`; echo 
 
 Apparently the problem was a parallelization problem. This code doesn't seem good for multiple workers hitting it at the same time. So we wrote a very simple nodejs server and replaced this line with
 
-```nodejs
+```bash
 nodejs server.js $TESTS_FILE $SERVER_PORT
 ```
 
@@ -80,6 +83,7 @@ And problem solved! Finally!
 One last problem we faced was that all of our frontend and interaction tests were failing. It was easy to spot that the problem is something related to those tests since all of them were failing. After some googling, we found that our chrome driver needs a virtual frame buffer to run and wasn't there by default in our docker image. Installing the xvfb and starting it fixed that problem.
 
 ### Things that could have been better
+
 #### Bash
 One of the things that surely could have been much better was choosing bash for this project. Bash makes dealing with SSH connections, docker, subprocesses and unix commands very easy. But it doesn't seem to be the correct scripting language for such a big project. There are many docker libraries for many languages and there are better ways to deal with the workers other that SSH.
 
@@ -93,7 +97,10 @@ Currently the system is tolerant to worker failures as mentioned before. Network
 Currently the workers IPs are hardcoded in the build matrix and the number of workers on each machines is specified manually. Service discovery tools could solve the IPs problem and other tools like Apache Mesos could make the scheduling thing more dynamic. But it's an over-kill for a cluster of 5 machines.
 
 ### Bonus
+
 ####The development environment
 One of the things we got as a bonus while building this test framework is our Dockerfile. Usually our new developers spend their first days setting up the environment and installing the tools and those things. With this pre-built docker file, developers can instantly start their development environment by pulling the development image from our local registry and can now focus on more interesting things in their first days ;)
 
-With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvements. Your comments, questions and ideas are welcomed!
+With this architecture we took down the test run time from 4 hours for a single run to 1.5 hours for three runs! And there is still more room for improvements.
+
+Your comments, questions and ideas are welcomed!
