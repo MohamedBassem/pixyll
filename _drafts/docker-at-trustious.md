@@ -1,3 +1,19 @@
+---
+layout: post
+title: Parallel Tests with Docker
+summary : ""
+description : ""
+date: '2015-06-28T20:00:00+2000'
+author: Mohamed Bassem
+image:
+tags:
+  - docker
+  - rails
+  - rspec
+  - jenkins
+  - bash
+categories :
+---
 At Trustious, our test suite was running on a single machine in about 12 hours. We used to parallelize the run on three machine. The run took on average about 4 hours. The results still were not satisfying to us so we started building our in office test cluster.
 
 [![Building the rack](/img/docker-at-trustious/building-the-rack.JPG)](/img/docker-at-trustious/building-the-rack.JPG).
