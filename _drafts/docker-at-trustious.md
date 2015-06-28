@@ -72,28 +72,28 @@ As we mentioned before, rspec test results are dumped to stdout for each test. T
 #### Rspec Dry Run
 Dry run is needed for the server to list all the tests we had. It was there in earlier versions of rspec but then removed. So we hacked it in our way.
 
-```ruby
+{% highlight ruby %}
 if ENV['FAIL_ALL']
   config.before(:each) do
     raise 'Fail each test immediately'
   end
 end
-```
+{% endhighlight %}
 
 Then you can start the dry run by `FAIL_ALL=true bundle exec rspec spec`. All tests will fail immediately.
 
 #### Many Failures
 Missing tests are reported failed with this error message `"Example didn't run because of a timeout or a drop"`. We had many of them. Whenever you try to run them locally, they will pass. We always thought that those tests are flaky and that they fail because of the timeout we set. The problem was that they are not the same each run. This was one of the hardest problems we faced until we noticed that those tests were not in any of the logs of any of the servers although it was reported that it was assigned to a certain server. So somehow one of the workers started a request and it hit the server but the test itself was never sent to the worker for some reason. At first we had this as our server :
 
-```bash
+{% highlight bash %}
 cat $TESTS_FILE | while read x; do TMP=`echo "$x" | ncat -l $SERVER_PORT`; echo "$TEST_COUNTER - $x --> Worker $TMP"; let TEST_COUNTER=TEST_COUNTER+1; done
-```
+{% endhighlight %}
 
 Apparently the problem was a parallelization problem. This code doesn't seem good for multiple workers hitting it at the same time. So we wrote a very simple nodejs server and replaced this line with
 
-```bash
+{% highlight bash %}
 nodejs server.js $TESTS_FILE $SERVER_PORT
-```
+{% endhighlight %}
 
 And problem solved! Finally!
 
