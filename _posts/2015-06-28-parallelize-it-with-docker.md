@@ -2,7 +2,7 @@
 layout: post
 title: Parallelize it with Docker
 summary : "At Trustious, our test suite used to run on a single machine for about 12 hours. We then tried parallelizing the run on three machines. The run took on average about 4 hours. The results were still not satisfying to us so we started building our in office test cluster and a test parallelization framework using docker."
-description : "At Trustious, our test suite used to run on a single machine for about 12 hours. We then tried parallelizing the run on three machines. The run took on average about 4 hours. The results were still not satisfying to us so we started building our in office test cluster and a test parallelization framework using docker."
+description : "At Trustious, our test suite used to run on a single machine for about 12 hours, so we built our in office test cluster and a test parallelization framework using docker."
 date: '2015-06-28T21:30:00+2000'
 author: Mohamed Bassem
 image: /img/parallelize-it-with-docker/building-the-rack.JPG
