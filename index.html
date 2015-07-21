@@ -9,7 +9,7 @@ layout: default
       <div class="post py3">
         <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
           <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-          <h3 class="h2 post-title"{% if post.is_arabic %} dir="rtl" {% endif %} >{{ post.title }}</h3>
+          <h3 class="h1 post-title"{% if post.is_arabic %} dir="rtl" {% endif %} >{{ post.title }}</h3>
           <p class="post-summary" {% if post.is_arabic %} dir="rtl" {% endif %} >
           {% if post.summary %}
             {{ post.summary }}
