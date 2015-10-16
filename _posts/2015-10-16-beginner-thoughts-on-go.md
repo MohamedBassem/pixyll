@@ -2,8 +2,8 @@
 layout: post
 title: Beginner Thoughts on Go
 summary : "A few months ago, I couldn't answer the \"What's your main programming language?\" question. I knew many programming languages during my university studies, internships and side projects but I didn't dig deep into any of them. I decided I wanted to learn something new and dig deeper into it. That's when I first found out about Google's golang. I started learning go and worked on some side projects with it, and I actually like it. A few weeks ago, I started building a big sized backend service for @zoobeapp using go and it's in production now. In this blog post I'll write about some of my thoughts on Go after I've been using it for a few months now."
-description : "A few months ago, I couldn't answer the \"What's your main programming language?\" question. I found about Google's golang and started learning it. In this blog post I'll write about some of my thoughts on Go after I've been using it for a few months now."
-date: '2015-10-17T10:00:00+2000'
+description : "A few months ago, I couldn't answer the \"What's your main programming language?\" question. I found out about Google's golang and started learning it. In this blog post I'll write about some of my thoughts on Go after I've been using it for a few months now."
+date: '2015-10-16T21:30:00+2000'
 author: Mohamed Bassem
 image: /img/beginner-thoughts-on-go/gopher.png
 tags:
