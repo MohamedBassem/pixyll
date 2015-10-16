@@ -5,7 +5,7 @@ summary : "A few months ago, I couldn't answer the \"What's your main programmin
 description : "A few months ago, I couldn't answer the \"What's your main programming language?\" question. I found about Google's golang and started learning it. In this blog post I'll write about some of my thoughts on Go after I've been using it for a few months now."
 date: '2015-10-17T10:00:00+2000'
 author: Mohamed Bassem
-image: /img/about-go/gopher.png
+image: /img/beginner-thoughts-on-go/gopher.png
 tags:
   - go
   - golang
@@ -18,7 +18,7 @@ A few months ago, I decided to review my knowledge of programming languages and 
 
 Some of the main things you care about in competitive programming are the runtime and how long it takes to code your solution. Compared to C++, Java fails at both. I decided to switch to C++ for competitive programming. C++ macros can make you code the solution faster. C++ STL contains most of the things that you may need. From the runtime point of view, C++ is significantly faster. If there is a reason to solve a problem in Java, it would be Java's BigInteger class. My knowledge of C++ was limited to competitive programming until we had to work on [a](https://github.com/MohamedBassem/tetris) [project](https://github.com/medo/raafat-elhagan) for my graphics course at university using OpenGL and C++. That's when I found I know nothing about C++. The same happened again, a year later during my internship at @zoobeapp. I had some tasks to work on for a huge C++ project under the mentorship of @aguperezpala who is a very talented C++ developer.  But will I ever write a web app in C++? Never!
 
-[![AgustinCodeReview](/img/about-go/AgustinReview.png)](/img/about-go/AgustinReview.png){:: data-lightbox="img1"}
+[![AgustinCodeReview](/img/beginner-thoughts-on-go/AgustinReview.png)](/img/beginner-thoughts-on-go/AgustinReview.png){:: data-lightbox="img1"}
 
 <p class="image-caption">Agustin's code review on my two c++ pull requests.</p>
 
@@ -30,7 +30,7 @@ In this blog post I'll write about some of my thoughts on Go after I've been usi
 
 ###Go
 
-[![AgustinCodeReview](/img/about-go/gopher.png)](/img/about-go/gopher.png){:: data-lightbox="img2"}
+[![AgustinCodeReview](/img/beginner-thoughts-on-go/gopher.png)](/img/beginner-thoughts-on-go/gopher.png){:: data-lightbox="img2"}
 
 *Image from https://github.com/golang-samples/gopher-vector*
 
