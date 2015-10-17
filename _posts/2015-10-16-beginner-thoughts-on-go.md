@@ -128,7 +128,7 @@ And many other things that you can find in the plugin's repo.
 
 I have a problem structuring my go code. Go files in the same directory must be in the same package. Packages can be built and even pulled on their own. The problem is, this kind of discourages me from separating my go files into directories (packages). I need something that binds some files that's stronger than having all the files in the same package yet weaker than separating them into completely independent package on their own. Some advice is needed here please :blush:
 
-**UPD1 :** [/u/lantins](https://www.reddit.com/user/lantins) on [/r/golang](https://www.reddit.com/r/golang/comments/3p147h/beginner_thoughts_on_go/cw2bl1x) mentioned what's called "[Internal Packages](https://golang.org/doc/go1.4#internalpackages)". It was introduced in Go1.4. I didn't know about it before and it solves the problem I mentioned earlier! Also this [comment](http://golangnews.com/comments/87) from "golangnews" suggests a good approach for packaging. Thank you!
+**UPD1 :** [/u/calebdoxsey](https://www.reddit.com/user/calebdoxsey) on [/r/golang](https://www.reddit.com/r/golang/comments/3p147h/beginner_thoughts_on_go/cw2bl1x) mentioned what's called "[Internal Packages](https://golang.org/doc/go1.4#internalpackages)". It was introduced in Go1.4. I didn't know about it before and it solves the problem I mentioned earlier! Also this [comment](http://golangnews.com/comments/87) from "golangnews" suggests a good approach for packaging. Thank you!
 
 
 ####Encapsulation
