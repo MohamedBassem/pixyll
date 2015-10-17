@@ -128,6 +128,9 @@ And many other things that you can find in the plugin's repo.
 
 I have a problem structuring my go code. Go files in the same directory must be in the same package. Packages can be built and even pulled on their own. The problem is, this kind of discourages me from separating my go files into directories (packages). I need something that binds some files that's stronger than having all the files in the same package yet weaker than separating them into completely independent package on their own. Some advice is needed here please :blush:
 
+**UPD1 :** [/u/lantins](https://www.reddit.com/user/lantins) on [/r/golang](https://www.reddit.com/r/golang/comments/3p147h/beginner_thoughts_on_go/cw2bl1x) mentioned what's called "[Internal Packages](https://golang.org/doc/go1.4#internalpackages)". It was introduced in Go1.4. I didn't know about it before and it solves the problem I mentioned earlier! Also this [comment](http://golangnews.com/comments/87) from "golangnews" suggests a good approach for packaging. Thank you!
+
+
 ####Encapsulation
 
 Go fields and methods have two access modes. Either public or private depending on the case of the first character. Go's private is Java's no access modifier. Meaning that any private field or method in a struct can be accessed by any function from the same package. Sometimes that's not what I want and I don't want to separate that struct into a separate package for the reasons I mentioned when talking about packages.
@@ -157,3 +160,5 @@ If you are willing to learn go, these are some of the resources that helped me.
 I only have a few months of experience with go so I'm still a beginner. All of the previous points are just my thoughts that may or may not be wrong. If you have any comments/thoughts/resources feel free to share them in the comments.
 
 *And as always, I want to thank @SaraAlaaKhodeir for her review. Thank you!*
+
+**UPD2 :** Some discussions on the post on : [/r/golang/](https://www.reddit.com/r/golang/comments/3p147h/beginner_thoughts_on_go/) & [golangnews](http://golangnews.com/stories/288).
