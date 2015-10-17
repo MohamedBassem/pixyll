@@ -117,7 +117,7 @@ In go, you can't do something like `"user".camelize.constantize.first`. You can'
 
 [Go-Vim](https://github.com/fatih/vim-go) has become one of my favourite vim plugins. With the help of go native tools, Go-Vim provides:
 
-- automatic code formatting on save. Using `go fmt`.. Yes, Go has a standard code formating!
+- automatic code formatting on save. Using `go fmt`.. Yes, Go has a standard code formatting!
 - automatically importing packages
 - going to variable definition
 - going to the documentation of a function
