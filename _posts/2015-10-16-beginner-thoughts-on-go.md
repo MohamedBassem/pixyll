@@ -47,15 +47,14 @@ import (
 	"time"
 )
 
-func consumer(id int, queue chan string) {
-	for {
-		str := <-queue
+func consumer(id int, queue <-chan string) {
+	for str := range queue {
 		fmt.Printf("Consumer %v : %v\n", id, str)
 	}
 }
 
 func producer(queue chan string) {
-	for i:=0; i < 20; i++{
+	for i := 0; i < 20; i++ {
 		queue <- fmt.Sprintf("New Job %v", i)
 		time.Sleep(time.Second)
 	}
@@ -70,9 +69,10 @@ func main() {
 	}
 	producer(jobQueue)
 }
+}
 {% endhighlight %}
 
-You can run this example here : [https://play.golang.org/p/2kg6QwySS6](https://play.golang.org/p/2kg6QwySS6)
+You can run this example here : [https://play.golang.org/p/c-OAi5XGJ-](https://play.golang.org/p/c-OAi5XGJ-)
 
 ####Panics and Errors
 
