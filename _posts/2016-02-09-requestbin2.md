@@ -24,7 +24,7 @@ func deliver(){
   body, _ := ioutil.ReadAll(request.Body)
   log.LogParseBody(body)
   if request != nill {
-    _, err := &(http.Client{}).Do(request)
+    _, err := (&http.Client{}).Do(request)
   }
   // .........
 }
