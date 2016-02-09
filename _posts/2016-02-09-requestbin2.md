@@ -62,7 +62,7 @@ func TestLikeSanityCheck(t *testing.T) {
 }
 {% endhighlight %}
 
-The server in code above expects one request and then it will return. If a request was not received within a one second timeout the server will exit also and the `reqs` slice will be empty. It may be the case also that the function you call generates a certain amount of requests and then it stops, you can capture the requests sent by this function by what's called a RequestTimeout. If the RequestTimeout is set, the server has to receive a new request every `RequestTimeout` seconds or it will exit. The returned status code from the mock server can also be configured.
+The server in the code above expects one request and then it will return. If a request was not received within a one second timeout the server will exit also and the `reqs` slice will be empty. It may be the case also that the function you call generates a certain amount of requests and then it stops. You can capture the requests sent by this function by what's called a RequestTimeout. If the RequestTimeout is set, the server has to receive a new request every `RequestTimeout` seconds or it will exit. The returned status code from the mock server can also be configured.
 
 ### Contribution
 
