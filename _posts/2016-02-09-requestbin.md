@@ -5,8 +5,7 @@ summary : "RequestBin is an open source golang package that is used to mock remo
 description : "RequestBin is an open source golang package that is used to mock remote servers. It starts a mock server locally, runs a user defined function passing the mock server's URL to it and collects all the requests that were sent to the server."
 date: '2016-02-09T13:49:00+0000'
 author: Mohamed Bassem
-image: 
-published: true
+image: /img/requestbin/screenshot.png
 tags:
   - golang
   - requestbin
