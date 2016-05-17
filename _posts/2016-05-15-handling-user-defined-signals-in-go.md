@@ -59,3 +59,5 @@ In action :
 The previous uses  were just two examples that came to mind, but you can do whatever you want with the signals. If you have any other ideas, comments or questions, please share them with me in the comments.
 
 *And as always, I want to thank @SaraAlaaKhodeir for reviewing the post. Thank you!*
+
+ **EDIT :** Adding the mutex guarding the io.Writer. Thanks to [/u/jeffrallen](https://www.reddit.com/user/jeffrallen).
