@@ -48,8 +48,6 @@ One other use case for signals is to reload your configuration file without rest
 
 <script src="https://gist.github.com/MohamedBassem/0f294d6df244e4def877e01d98af47af.js?ts=4&file=config.go"></script>
 
-In a more complex app, you'll probably have to guard the config variable with a mutex.
-
 In action :
 
 <script type="text/javascript" src="https://asciinema.org/a/45625.js" id="asciicast-45625" async></script>
