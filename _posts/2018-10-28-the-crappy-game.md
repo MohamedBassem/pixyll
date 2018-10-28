@@ -5,7 +5,7 @@ summary : "Let me tell you about the crappiest thing I've ever built. A multipla
 description : "Let me tell you about one of crappiest thing I've ever built. A multiplayer 3D OpenGL game with a lot of hacks."
 date: '2018-10-28T19:00:00+0000'
 author: Mohamed Bassem
-image: /img/raafat-elhagan/thumbnail.png
+image:
 tags:
   - graphics
   - opengl
