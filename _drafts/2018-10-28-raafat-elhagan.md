@@ -35,13 +35,13 @@ We move the bullet one step each iteration in the direction of the shot for 1000
 
 ### It's a feature not a bug
 
-GIF flying
+[![Jump](/img/raafat-elhagan/jump.gif)](/img/raafat-elhagan/jump.gif){:: data-lightbox="img3"}
 
 We noticed that you can jump while you are still in the air. There was no quick way to prevent that, so we though it might be cool to allow players to fly. Totally intended.
 
-GIF falling
+[![Fall](/img/raafat-elhagan/fall.gif)](/img/raafat-elhagan/fall.gif){:: data-lightbox="img3"}
 
-Did I mention that our world is infinite?
+Did I mention that our world is infinite? Only when you are falling.
 
 ## Sound
 
@@ -75,7 +75,7 @@ DEMO VIDEO
 
 ## Grade
 
-What we ended up with was actually a fun game to play. During the evaluation, we played against our TA (teacher assistant), he enjoyed the game. We got the full grade with a bonus that overflowed and filled our lost quiz grades. SUCCESS.
+What we ended up with was actually a fun game to play. We got the full grade with a bonus that overflowed and filled our lost quiz grades. SUCCESS.
 
 ## Not so happy ending
 
