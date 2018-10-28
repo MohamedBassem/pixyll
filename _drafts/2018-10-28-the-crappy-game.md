@@ -72,7 +72,7 @@ By now you've probably guessed what's being communicated. Whenever a binary is s
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2RfFhbd-tro" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-Some of the clips in this demo are from an over the internet match. That's why some of them are a bit lagging, the game was designed only for local network matches 😌
+Some of the clips in this demo are from an over-the-internet match. That's why some of them are a bit laggy, the game was designed only for local network matches 😌
 
 ## Grade
 
