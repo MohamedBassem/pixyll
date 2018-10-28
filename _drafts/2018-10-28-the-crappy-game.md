@@ -69,9 +69,9 @@ By now you've probably guessed what's being communicated. Whenever a binary is s
 
 ## Demo
 
-We played the game today over the internet (doing port forwarding on both routers) and recorded this demo. The demo is lagging a bit because the game was not designed for that.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2RfFhbd-tro" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-DEMO VIDEO
+Some of the clips in this demo are from an over the internet match. That's why some of them are a bit lagging, the game was designed only for local network matches 😌
 
 ## Grade
 
