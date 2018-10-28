@@ -15,13 +15,13 @@ tags:
 categories :
 ---
 
-Let me tell you the story of the crappiest thing I've ever built, which is at the same time one my favorite projects. It was someday in December 2014. My friend Farghal ([@medo](https://github.com/medo)) and I were in a team for the project of the Computer Graphics university course. The project was about building any 3D game using OpenGL. Sounds good? yeah, except that we procrastinated until it's 24 hours before the deadline, and ... we knew nothing about how OpenGL works. Well, actually we knew nothing about computer graphics in general.
+Let me tell you the story of the crappiest thing I've ever built, which is at the same time one my favorite projects. It was someday in December 2014. My friend Farghal ([@medo](https://github.com/medo)) and I were in a team for the project of the computer graphics university course. The project was about building any 3D game using OpenGL. Sounds good? yeah, except that we procrastinated until it's 24 hours before the deadline, and ... we knew nothing about how OpenGL works. Well, actually we knew nothing about computer graphics in general.
 
 We knew that if we want to get the full grade, we will have to build something impressive to cover up for the poor graphics aspect of the game. We decided to build a multiplayer first person shooter. Yes.
 
 [![Game](/img/raafat-elhagan/game.png)](/img/raafat-elhagan/game.png){:: data-lightbox="img3"}
 
-In this post I'll walk you through some of the hacks that we did to deliver this game in time. The game's code is [open source](https://github.com/medo/raafat-elhagan). Normally, I'd say go check it out, but in this specific case, please don't. I swear we both code way better than that now, this was 4 years ago.
+In this post I'll walk you through some of the hacks that we did to deliver this game in time. The game's code is [open source](https://github.com/medo/raafat-elhagan). Normally, I'd say go check it out, but in this specific case, please don't. I swear we both code way better than this right now, this was 4 years ago.
 
 ## Gameplay
 
@@ -71,13 +71,14 @@ By now you've probably guessed what's being communicated. Whenever a binary is s
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2RfFhbd-tro" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+
 Some of the clips in this demo are from an over the internet match. That's why some of them are a bit lagging, the game was designed only for local network matches 😌
 
 ## Grade
 
-What we ended up with was actually a fun game to play. We got the full grade with a bonus that overflowed and filled our lost quiz grades. IN 24 HOURS. SUCCESS.
+What we ended up with was actually a fun crappy game to play. We got the full grade with a bonus that overflowed and filled our lost quiz grades. IN 24 HOURS. SUCCESS.
 
 ## The Not So Happy Ending
 
-We built this game. We wrote its logic. We knew how to cheat. We knew how to trigger certain bugs. But we lost the first real match against our friend [Rami](https://github.com/rami-khalil). We suck at playing our own game.
+We built this game. We wrote its logic. We knew how to cheat. We knew how to trigger certain bugs. But we lost the first real match against our friend [Rami](https://github.com/rami-khalil). Apparently, we suck at playing our own game.
 
