@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The Crappy Game
-summary : "Let me tell you about the crappiest thing I've ever built. A multiplayer 3D OpenGL game with a lot of hacks."
-description : "Let me tell you about one of crappiest thing I've ever built. A multiplayer 3D OpenGL game with a lot of hacks."
+summary : "Let me tell you about the crappiest thing we’ve ever built. It involves a deadline, procrastination, hacks & ugly code. It’s one of my favorite projects though."
+description : "Let me tell you about the crappiest thing we’ve ever built. It involves a deadline, procrastination, hacks & ugly code. It’s one of my favorite projects though."
 date: '2018-10-28T19:00:00+0000'
 author: Mohamed Bassem
 image:
@@ -15,7 +15,7 @@ tags:
 categories :
 ---
 
-Let me tell you the story of the crappiest thing I've ever built, which is at the same time one my favorite projects. It was someday in December 2014. My friend Farghal ([@medo](https://github.com/medo)) and I were in a team for the project of the computer graphics university course. The project was about building any 3D game using OpenGL. Sounds good? yeah, except that we procrastinated until it's 24 hours before the deadline, and ... we knew nothing about how OpenGL works. Well, actually we knew nothing about computer graphics in general.
+Let me tell you the story of the crappiest thing we've ever built, which is at the same time one my favorite projects. It was someday in December 2014. My friend Farghal ([@medo](https://github.com/medo)) and I were in a team for the project of the computer graphics university course. The project was about building any 3D game using OpenGL. Sounds good? yeah, except that we procrastinated until it's 24 hours before the deadline, and ... we knew nothing about how OpenGL works. Well, actually we knew nothing about computer graphics in general.
 
 We knew that if we want to get the full grade, we will have to build something impressive to cover up for the poor graphics aspect of the game. We decided to build a multiplayer first person shooter. Yes.
 
