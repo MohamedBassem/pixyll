@@ -4,8 +4,8 @@ email:       medoox240@gmail.com
 author:      Mohamed Bassem
 description: "A place where I write my social and technical thoughts."
 baseurl:     ""
-url:         "http://blog.mbassem.com"
-about_url: "http://mbassem.com"
+url:         "https://blog.mbassem.com"
+about_url: "https://mbassem.com"
 
 # Google analytics
 google_analytics: UA-47448310-1
