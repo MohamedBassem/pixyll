@@ -5,7 +5,7 @@ summary : "I've been reading a lot of tech articles and blogs recently. In this 
 description : "I've been reading a lot of tech articles and blogs recently. In this post, I'll share some of those I found interesting over the past year."
 date: '2019-01-27T12:00:00+0000'
 author: Mohamed Bassem
-image: /img/favorite-articles-2018/pocket-2.png
+image: /img/favorite-articles-2018/pocket2.png
 tags:
   - pocket
   - articles
@@ -17,7 +17,7 @@ tags:
 categories :
 ---
 
-[![Pocket](/img/favorite-articles-2018/pocket-2.png)](/img/favorite-articles-2018/pocket-2.png){:: data-lightbox="pocket"}
+[![Pocket](/img/favorite-articles-2018/pocket2.png)](/img/favorite-articles-2018/pocket2.png){:: data-lightbox="pocket"}
 
  I've been reading a lot of tech articles and blogs recently. Those articles are mostly from either [HackerNews](https://news.ycombinator.com/), reddit's [/r/programming](https://www.reddit.com/r/programming/), Pocket's explore tab or the people I follow on twitter and facebook. I save them to [Pocket](http://getpocket.com) and read them later on during my daily commute.
 
