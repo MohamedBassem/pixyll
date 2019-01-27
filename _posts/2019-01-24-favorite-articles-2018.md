@@ -1,8 +1,8 @@
 ---
 layout: post
 title: My Favorite Tech Articles for 2018
-summary : "I've been reading a lot of tech articles and blogs recently. In this post, I'll share some of the interesting ones I read in 2018."
-description : "I've been reading a lot of tech articles and blogs recently. In this post, I'll share some of the interesting ones I read in 2018."
+summary : "I've been reading a lot of tech articles and blogs recently. In this post, I'll share some of those I found interesting over the past year."
+description : "I've been reading a lot of tech articles and blogs recently. In this post, I'll share some of those I found interesting over the past year."
 date: '2019-01-27T12:00:00+0000'
 author: Mohamed Bassem
 image:
@@ -10,6 +10,10 @@ tags:
   - pocket
   - articles
   - tech
+  - blogs
+  - security
+  - networking
+  - distributed-systems
 categories :
 ---
 
