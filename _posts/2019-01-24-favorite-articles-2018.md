@@ -32,7 +32,7 @@ I decided to share some of those I found interesting over the past year. I skimm
 - And why you might want to glue it back : [Goodbye Microservices: From 100s of problem children to 1 superstar](https://segment.com/blog/goodbye-microservices/).
 - Github talking about their MySQL High availability setup: [MySQL High Availability at GitHub](https://githubengineering.com/mysql-high-availability-at-github/).
 - [A plain english introduction to CAP Theorem](http://ksat.me/a-plain-english-introduction-to-cap-theorem/).
-- [How to write a good software design doc?](https://medium.freecodecamp.org/how-to-write-a-good-software-design-document-66fcf019569c).
+- [How to write a good software design doc?](https://medium.freecodecamp.org/how-to-write-a-good-software-design-document-66fcf019569c)
 - What's a memory allocator and how to build a simple one? [Memory Allocators 101 - Write a simple memory allocator](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory).
 - What would you do if you find a RaspberryPi in your network closet? [The curious case of the Raspberry Pi in the network closet](https://blog.haschek.at/2018/the-curious-case-of-the-RasPi-in-our-network.html).
 - [Why NOT to Build a Time-Series Database](https://www.outlyer.com/blog/why-not-to-build-a-time-series-database/). Spoiler alert: It's hard.
